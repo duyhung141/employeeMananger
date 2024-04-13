@@ -18,15 +18,6 @@
                         @endforeach
                     </select>
                 </div>
-                {{--                <div class="col-md-4">--}}
-                {{--                    <label for="department_id" class="form-label">Phòng ban</label>--}}
-                {{--                    <select class="form-select" id="department_id" name="department_id" required>--}}
-                {{--                        <option selected disabled value="">---Choose---</option>--}}
-                {{--                        <option>Phòng ban 1</option>--}}
-                {{--                        <option>Phòng ban 2</option>--}}
-                {{--                        <option>Phòng ban 3</option>--}}
-                {{--                    </select>--}}
-                {{--                </div>--}}
                 <div class="col-md-3">
                     <label for="effective_date" class="form-label">Ngày có hiệu lực</label>
                     <div class="input-group has-validation">

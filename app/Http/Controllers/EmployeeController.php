@@ -26,9 +26,8 @@ class EmployeeController extends Controller
 //         Validate data
         $request->validate([
             'name' => 'required',
-//            'department_id' => 'required',
-//            'position_id' => 'required',
-//            'contract_id' => 'required',
+            'department' => 'required',
+            'position' => 'required',
             'type' => 'required',
             'gender' => 'required',
             'birthday' => 'required',
@@ -59,9 +58,8 @@ class EmployeeController extends Controller
         //         Validate data
         $request->validate([
             'name' => 'required',
-//            'department_id' => 'required',
-//            'position_id' => 'required',
-//            'contract_id' => 'required',
+            'department' => 'required',
+            'position' => 'required',
             'type' => 'required',
             'gender' => 'required',
             'birthday' => 'required',

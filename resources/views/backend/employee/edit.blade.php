@@ -9,30 +9,30 @@
             </div><!--End card-header -->
 
             <div class="card-body row">
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <label for="name" class="form-label">Họ và tên</label>
                     <input type="text" class="form-control" id="name" name="name" value="{{ $employee->name }}"
                            required>
                 </div>
-                {{--                <div class="col-md-4">--}}
-                {{--                    <label for="department_id" class="form-label">Phòng ban</label>--}}
-                {{--                    <select class="form-select" id="department_id" name="department_id" required>--}}
-                {{--                        <option selected disabled value="">---Choose---</option>--}}
-                {{--                        <option>Phòng ban 1</option>--}}
-                {{--                        <option>Phòng ban 2</option>--}}
-                {{--                        <option>Phòng ban 3</option>--}}
-                {{--                    </select>--}}
-                {{--                </div>--}}
-                {{--                <div class="col-md-4">--}}
-                {{--                    <label for="position_id" class="form-label">Chức vụ</label>--}}
-                {{--                    <select class="form-select" id="position_id" name="position_id" required>--}}
-                {{--                        <option selected disabled value="">---Choose---</option>--}}
-                {{--                        <option>Chức vụ 1</option>--}}
-                {{--                        <option>Chức vụ 2</option>--}}
-                {{--                        <option>Chức vụ 3</option>--}}
-                {{--                    </select>--}}
-                {{--                </div>--}}
-                <div class="col-md-4">
+                <div class="col-md-3">
+                    <label for="department" class="form-label">Phòng ban</label>
+                    <select class="form-select" id="department" name="department" required>
+                        <option selected disabled value="">---Choose---</option>
+                        @foreach(config('department.departments') as $department)
+                            <option {{ $employee->department == $department? 'selected' : '' }} value="{{ $department }}">{{ $department }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="position" class="form-label">Chức vụ</label>
+                    <select class="form-select" id="position" name="position" required>
+                        <option selected disabled value="">---Choose---</option>
+                        @foreach(config('position.positions') as $position)
+                            <option {{ $employee->position == $position? 'selected' : '' }} value="{{ $position }}">{{ $position }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-md-3">
                     <label for="email" class="form-label">Email</label>
                     <div class="input-group has-validation">
                         <span class="input-group-text" id="email">@</span>
@@ -40,7 +40,7 @@
                                required>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <label for="phone" class="form-label">Điện thoại</label>
                     <div class="input-group has-validation">
                         <input type="text" class="form-control" id="phone" name="phone" value="{{ $employee->phone }}"
@@ -81,10 +81,10 @@
                     <label for="nationality" class="form-label">Quốc tịch</label>
                     <select class="form-select" id="nationality" name="nationality" required>
                         <option selected disabled value="">---Choose---</option>
-                        <option {{ $employee->gender == 'VIETNAM'? 'selected' : '' }} value="VIETNAM">Việt Nam</option>
-                        <option {{ $employee->gender == 'KOREA'? 'selected' : '' }} value="KOREA">Hàn Quốc</option>
-                        <option {{ $employee->gender == 'JAPAN'? 'selected' : '' }} value="JAPAN">Nhật Bản</option>
-                        <option {{ $employee->gender == 'CHINESE'? 'selected' : '' }} value="CHINESE">Trung Quốc
+                        <option {{ $employee->nationality == 'VIETNAM'? 'selected' : '' }} value="VIETNAM">Việt Nam</option>
+                        <option {{ $employee->nationality == 'KOREA'? 'selected' : '' }} value="KOREA">Hàn Quốc</option>
+                        <option {{ $employee->nationality == 'JAPAN'? 'selected' : '' }} value="JAPAN">Nhật Bản</option>
+                        <option {{ $employee->nationality == 'CHINESE'? 'selected' : '' }} value="CHINESE">Trung Quốc
                         </option>
                     </select>
                 </div>
@@ -92,11 +92,11 @@
                     <label for="type" class="form-label">Loại nhân viên</label>
                     <select class="form-select" id="type" name="type" required>
                         <option selected disabled value="">---Choose---</option>
-                        <option {{ $employee->gender == 'PROBATION'? 'selected' : '' }} value="PROBATION">Thử việc
+                        <option {{ $employee->type == 'PROBATION'? 'selected' : '' }} value="PROBATION">Thử việc
                         </option>
-                        <option {{ $employee->gender == 'OFFICIAL'? 'selected' : '' }} value="OFFICIAL">Chính thức
+                        <option {{ $employee->type == 'OFFICIAL'? 'selected' : '' }} value="OFFICIAL">Chính thức
                         </option>
-                        <option {{ $employee->gender == 'INTERN'? 'selected' : '' }} value="INTERN">Thực tập sinh
+                        <option {{ $employee->type == 'INTERN'? 'selected' : '' }} value="INTERN">Thực tập sinh
                         </option>
                     </select>
                 </div>

@@ -45,22 +45,22 @@ class Salary extends Model
 
     public function getColTaxSchedule()
     {
-        return number_format($this->tax_schedule, 0, ',', '.');
+        return number_format($this->tax_schedule, 0, '.', ',');
     }
 
     public function getColBacsicSalary()
     {
-        return number_format($this->basic_salary, 0, ',', '.');
+        return number_format($this->basic_salary, 0, '.', ',');
     }
 
     public function getColNegotiableSalary()
     {
-        return number_format($this->negotiable_salary, 0, ',', '.');
+        return number_format($this->negotiable_salary, 0, '.', ',');
     }
 
     public function getColCoefficientSalary()
     {
-        return number_format($this->coefficient_salary, 0, ',', '.');
+        return number_format($this->coefficient_salary, 0, '.', ',');
     }
 
     public function getColStatus()

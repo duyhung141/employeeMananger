@@ -9,29 +9,38 @@
             </div><!--End card-header -->
 
             <div class="card-body row">
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <label for="name" class="form-label">Họ và tên</label>
                     <div class="input-group has-validation">
                         <input type="text" class="form-control" id="name" name="name" required>
                     </div>
                 </div>
-{{--                <div class="col-md-4">--}}
-{{--                    <label for="department_id" class="form-label">Phòng ban</label>--}}
-{{--                    <select class="form-select" id="department_id" name="department_id" required>--}}
-{{--                        <option selected disabled value="">---Choose---</option>--}}
-{{--                        <option>Phòng ban 1</option>--}}
-{{--                        <option>Phòng ban 2</option>--}}
-{{--                        <option>Phòng ban 3</option>--}}
-{{--                    </select>--}}
-{{--                </div>--}}
-                <div class="col-md-4">
+                <div class="col-md-3">
+                    <label for="department" class="form-label">Phòng ban</label>
+                    <select class="form-select" id="department" name="department" required>
+                        <option selected disabled value="">---Choose---</option>
+                        @foreach(config('department.departments') as $department)
+                            <option value="{{ $department }}">{{ $department }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="position" class="form-label">Chức vụ</label>
+                    <select class="form-select" id="position" name="position" required>
+                        <option selected disabled value="">---Choose---</option>
+                        @foreach(config('position.positions') as $position)
+                            <option value="{{ $position }}">{{ $position }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-md-3">
                     <label for="email" class="form-label">Email</label>
                     <div class="input-group has-validation">
                         <span class="input-group-text" id="email">@</span>
                         <input type="email" class="form-control" id="email" name="email" required>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <label for="phone" class="form-label">Điện thoại</label>
                     <div class="input-group has-validation">
                         <input type="text" class="form-control" id="phone" name="phone" required>

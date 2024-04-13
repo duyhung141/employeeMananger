@@ -33,7 +33,7 @@
                         <td>{{ $salary->decision_code }}</td>
                         <td>
                             <p>{{ $salary->employee->name }}</p>
-                            <p class="mb-0">Phòng ban: {{ $salary->department_id }}</p>
+                            <p class="mb-0">Phòng ban: {{ $salary->employee->department }}</p>
                         </td>
                         <td>
                             <p class="mb-0">Ngày hiệu lực: {{ $salary->getColEffectiveDate() }}</p>

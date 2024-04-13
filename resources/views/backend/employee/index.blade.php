@@ -33,8 +33,8 @@
                             <p class="mb-0">{{ $employee->name }}</p>
                         </td>
                         <td>{{ $employee->tax_code }}</td>
-                        <td>{{ $employee->department_id }}</td>
-                        <td>{{ $employee->position_id }}</td>
+                        <td>{{ $employee->department }}</td>
+                        <td>{{ $employee->position }}</td>
                         <td>{{ $employee->getColBirthday() }}</td>
                         <td>{{ $employee->phone }}</td>
                         <td>{{ $employee->email }}</td>
