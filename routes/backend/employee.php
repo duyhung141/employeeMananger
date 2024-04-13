@@ -9,5 +9,13 @@ Route::group([
 //    'middleware' => ['auth:api'],
     'as' => 'employee.'
 ], function () {
-    Route::get('/', [EmployeeController::class, 'index']);
+    Route::get('/', [EmployeeController::class, 'index'])->name('index');
+    Route::get('create', [EmployeeController::class, 'create'])->name('create');
+    Route::post('store', [EmployeeController::class, 'store'])->name('store');
+    Route::prefix('{employee}')->group(function () {
+        Route::get('edit', [EmployeeController::class, 'edit'])->name('edit');
+        Route::post('update', [EmployeeController::class, 'update'])->name('update');
+        Route::get('show', [EmployeeController::class, 'show'])->name('show');
+        Route::delete('destroy', [EmployeeController::class, 'destroy'])->name('destroy');
+    });
 });

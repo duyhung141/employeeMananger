@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 require base_path('routes/backend/employee.php');
+require base_path('routes/backend/salary.php');

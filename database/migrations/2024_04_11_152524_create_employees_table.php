@@ -17,9 +17,8 @@ class CreateEmployeesTable extends Migration
             $table->id();
             $table->string('code')->nullable()->comment('Mã NV');
             $table->string('name')->comment('Tên NV');
-            $table->integer('department_id')->comment('ID Phòng ban');
-            $table->integer('position_id')->comment('ID Chức vụ');
-            $table->integer('contract_id')->comment('ID Hợp đồng');
+            $table->integer('department_id')->nullable()->comment('ID Phòng ban');
+            $table->integer('position_id')->nullable()->comment('ID Chức vụ');
             $table->string('type')->comment('Loại nhân viên');
             $table->string('gender')->comment('Giới tính');
             $table->date('birthday')->comment('Ngày sinh');
