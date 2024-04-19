@@ -6,7 +6,7 @@ use App\Http\Controllers\AllowanceSubsidyController;
 
 Route::group([
     'prefix' => 'allowance-subsidy',
-//    'middleware' => ['auth:api'],
+    'middleware' => ['auth'],
     'as' => 'allowance_subsidy.'
 ], function () {
     Route::get('/', [AllowanceSubsidyController::class, 'index'])->name('index');

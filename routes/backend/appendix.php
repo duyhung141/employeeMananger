@@ -6,7 +6,7 @@ use App\Http\Controllers\AppendixController;
 
 Route::group([
     'prefix' => 'appendix',
-//    'middleware' => ['auth:api'],
+    'middleware' => ['auth'],
     'as' => 'appendix.'
 ], function () {
     Route::get('/', [AppendixController::class, 'index'])->name('index');

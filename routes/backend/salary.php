@@ -6,7 +6,7 @@ use App\Http\Controllers\SalaryController;
 
 Route::group([
     'prefix' => 'salary',
-//    'middleware' => ['auth:api'],
+    'middleware' => ['auth'],
     'as' => 'salary.'
 ], function () {
     Route::get('/', [SalaryController::class, 'index'])->name('index');

@@ -100,14 +100,14 @@
         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
            data-toggle="dropdown" aria-expanded="false">
             <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-            <strong>Đức Phú</strong>
+            <strong>{{ auth()->user()->email }}</strong>
         </a>
         <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
             <li><a class="dropdown-item" href="#">Tài khoản</a></li>
             <li>
                 <hr class="dropdown-divider">
             </li>
-            <li><a class="dropdown-item" href="#">Đăng xuất</a></li>
+            <li><a class="dropdown-item" href="{{ auth()->logout() }}">Đăng xuất</a></li>
         </ul>
     </div>
 </aside>
