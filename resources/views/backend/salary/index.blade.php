@@ -5,12 +5,12 @@
         <div class="card-header">
             <h1>Quản lý nhân viên</h1>
         </div><!--End card-header -->
-        <div class="mt-2">
+        <div class="my-2 d-flex justify-content-end">
             <a href="{{ route('salary.create') }}" class="btn btn-primary float-end">Thêm mới</a>
         </div>
 
-        <div class="card-body px-0">
-            <table class="table table-striped">
+        <div class="card-body table-responsive p-0">
+            <table class="table table-hover text-nowrap">
                 <thead class="table-primary">
                 <tr class="">
                     <th scope="col">#</th>
@@ -26,6 +26,7 @@
                 </tr>
                 </thead>
                 <tbody>
+                @if($salaries->count() > 0)
                 @foreach($salaries as $index => $salary)
                     <tr>
                         <th scope="row">{{ $index + 1 }}</th>
@@ -45,7 +46,7 @@
                         <td>{{ $salary->getColNegotiableSalary() }}</td>
                         <td>{{ $salary->getColCoefficientSalary() }}</td>
                         <td>
-                            <button class="btn text-center" data-bs-toggle="dropdown">
+                            <button class="btn text-center dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                 <i class="bi bi-three-dots"></i>
                             </button>
                             <ul class="dropdown-menu">
@@ -60,20 +61,12 @@
                         </td>
                     </tr>
                 @endforeach
-
+                @endif
                 </tbody>
             </table>
         </div><!--End card-body -->
         <div class="card-footer">
-            <nav>
-                <ul class="pagination">
-                    <li class="page-item"><a class="page-link" href="#">Trước</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link active" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Tiếp</a></li>
-                </ul>
-            </nav>
+            {{ $salaries->links('pagination::bootstrap-4') }}
         </div>
     </div><!--End card -->
 

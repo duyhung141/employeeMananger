@@ -17,7 +17,7 @@
                 </div>
                 <div class="col-md-3">
                     <label for="department" class="form-label">Phòng ban</label>
-                    <select class="form-select" id="department" name="department" required>
+                    <select class="form-control" id="department" name="department" required>
                         <option selected disabled value="">---Choose---</option>
                         @foreach(config('department.departments') as $department)
                             <option value="{{ $department }}">{{ $department }}</option>
@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-md-3">
                     <label for="position" class="form-label">Chức vụ</label>
-                    <select class="form-select" id="position" name="position" required>
+                    <select class="form-control" id="position" name="position" required>
                         <option selected disabled value="">---Choose---</option>
                         @foreach(config('position.positions') as $position)
                             <option value="{{ $position }}">{{ $position }}</option>
@@ -60,7 +60,7 @@
                 </div>
                 <div class="col-md-3">
                     <label for="gender" class="form-label">Giới tính</label>
-                    <select class="form-select" id="gender" name="gender" required>
+                    <select class="form-control" id="gender" name="gender" required>
                         <option selected disabled value="">---Choose---</option>
                         <option value="MALE">Nam</option>
                         <option value="FEMALE">Nữ</option>
@@ -75,7 +75,7 @@
 
                 <div class="col-md-3">
                     <label for="nationality" class="form-label">Quốc tịch</label>
-                    <select class="form-select" id="nationality" name="nationality" required>
+                    <select class="form-control" id="nationality" name="nationality" required>
                         <option selected disabled value="">---Choose---</option>
                         <option value="VIETNAM">Việt Nam</option>
                         <option value="KOREA">Hàn Quốc</option>
@@ -85,7 +85,7 @@
                 </div>
                 <div class="col-md-3">
                     <label for="type" class="form-label">Loại nhân viên</label>
-                    <select class="form-select" id="type" name="type" required>
+                    <select class="form-control" id="type" name="type" required>
                         <option selected disabled value="">---Choose---</option>
                         <option value="PROBATION">Thử việc</option>
                         <option value="OFFICIAL">Chính thức</option>

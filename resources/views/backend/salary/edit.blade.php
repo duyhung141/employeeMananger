@@ -11,7 +11,7 @@
             <div class="card-body row">
                 <div class="col-md-4">
                     <label for="employee_id" class="form-label">Nhân viên</label>
-                    <select class="form-select" id="employee_id" name="employee_id" required>
+                    <select class="form-control" id="employee_id" name="employee_id" required>
                         <option selected disabled value="">---Choose---</option>
                         @foreach($employees as $employee)
                             <option {{ $employee->id == $salary->employee_id? 'selected' : '' }} value="{{ $employee->id }}">{{ $employee->name }}</option>

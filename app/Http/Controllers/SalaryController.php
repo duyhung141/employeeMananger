@@ -10,7 +10,7 @@ class SalaryController extends Controller
 {
     public function index()
     {
-        $salaries = Salary::all();
+        $salaries = Salary::paginate(10);
         $data = [
             'salaries' => $salaries
         ];
@@ -30,7 +30,7 @@ class SalaryController extends Controller
     {
         $request->validate([
             'employee_id' => 'required',
-//            'department_id' => 'required',
+//            'department' => 'required', Cần thêm lại
             'effective_date' => 'required',
             'expired_date' => 'required',
             'tax_schedule' => 'required',

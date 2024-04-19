@@ -17,7 +17,7 @@ class CreateSalariesTable extends Migration
             $table->id();
             $table->string('code')->nullable()->comment('Mã hồ sơ lương');
             $table->string('decision_code')->nullable()->comment('Số quyết định');
-            $table->integer('employee_id')->comment('ID nhân viên');
+            $table->bigInteger('employee_id')->comment('ID nhân viên');
             $table->date('effective_date')->comment('Ngày có hiệu lực');
             $table->date('expired_date')->comment('Ngày hết hiệu lực');
             $table->string('tax_schedule')->nullable()->comment('Biểu thuế');

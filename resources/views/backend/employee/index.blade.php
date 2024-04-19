@@ -5,14 +5,14 @@
         <div class="card-header">
             <h1>Quản lý nhân viên</h1>
         </div><!--End card-header -->
-        <div class="mt-2">
+        <div class="my-2 d-flex justify-content-end">
             <a href="{{ route('employee.create') }}" class="btn btn-primary float-end">Thêm mới</a>
         </div>
 
-        <div class="card-body px-0">
-            <table class="table table-striped">
-                <thead class="table-primary">
-                <tr class="">
+        <div class="card-body table-responsive p-0">
+            <table class="table table-hover text-nowrap">
+                <thead>
+                <tr class="table-primary">
                     <th scope="col">#</th>
                     <th scope="col">Nhân viên</th>
                     <th scope="col">Mã số thuế</th>
@@ -39,7 +39,7 @@
                         <td>{{ $employee->phone }}</td>
                         <td>{{ $employee->email }}</td>
                         <td>
-                            <button class="btn text-center" data-bs-toggle="dropdown">
+                            <button class="btn text-center dropdown-toggle" role="button" data-toggle="dropdown">
                                 <i class="bi bi-three-dots"></i>
                             </button>
                             <ul class="dropdown-menu">
@@ -54,20 +54,12 @@
                         </td>
                     </tr>
                 @endforeach
-
                 </tbody>
             </table>
-        </div><!--End card-body -->
+        </div>
+
         <div class="card-footer">
-            <nav>
-                <ul class="pagination">
-                    <li class="page-item"><a class="page-link" href="#">Trước</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link active" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Tiếp</a></li>
-                </ul>
-            </nav>
+            {{ $employees->links('pagination::bootstrap-4') }}
         </div>
     </div><!--End card -->
 

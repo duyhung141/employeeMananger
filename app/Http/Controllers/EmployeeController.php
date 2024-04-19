@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
+use App\Models\Salary;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
 {
     public function index()
     {
-        $employees = Employee::all();
+        $employees = Employee::paginate(10);
         $data = [
             'employees' => $employees,
         ];
@@ -42,7 +43,7 @@ class EmployeeController extends Controller
         $model_id = $employee->id;
         $code = 'NV' . str_pad($model_id, 4, '0', STR_PAD_LEFT);
         $employee->update(['code' => $code]);
-        return redirect()->route('employee.index');
+        return redirect()->route('employee.index')->with('success', 'Thêm mới thành công');
     }
 
     public function edit(Request $request, Employee $employee)
@@ -76,6 +77,6 @@ class EmployeeController extends Controller
     public function destroy(Employee $employee)
     {
         $employee->delete();
-        return redirect()->route('employee.index');
+        return redirect()->route('employee.index')->with('success', 'Xóa thành công');;
     }
 }

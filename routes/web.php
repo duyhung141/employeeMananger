@@ -20,3 +20,7 @@ Route::get('/', function () {
 
 require base_path('routes/backend/employee.php');
 require base_path('routes/backend/salary.php');
+require base_path('routes/backend/contract.php');
+require base_path('routes/backend/appendix.php');
+require base_path('routes/backend/reward_discipline.php');
+require base_path('routes/backend/allowance_subsidy.php');
