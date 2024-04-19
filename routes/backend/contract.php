@@ -6,7 +6,7 @@ use App\Http\Controllers\ContractController;
 
 Route::group([
     'prefix' => 'contract',
-    'middleware' => ['auth'],
+//    'middleware' => ['auth'],
     'as' => 'contract.'
 ], function () {
     Route::get('/', [ContractController::class, 'index'])->name('index');
