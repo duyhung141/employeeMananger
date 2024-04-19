@@ -26,7 +26,7 @@ class ChangeColumnUsernameToEmail extends Migration
     public function down()
     {
         Schema::table('Users', function (Blueprint $table) {
-            $table->renameColumn('email', 'username');
+            DB::statement('ALTER TABLE Users CHANGE email username VARCHAR(255) NOT NULL;');
         });
     }
 }
