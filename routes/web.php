@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,6 +23,7 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 Route::middleware(['auth'])->group(function () {
+    Route::get('/account',[UserController::class,'account'])->name('account');
     require base_path('routes/backend/employee.php');
     require base_path('routes/backend/salary.php');
     require base_path('routes/backend/contract.php');

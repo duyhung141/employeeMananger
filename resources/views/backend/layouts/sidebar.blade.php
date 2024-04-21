@@ -110,7 +110,7 @@
             <strong>{{ auth()->user()->email }}</strong>
         </a>
         <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-            <li><a class="dropdown-item" href="#">Tài khoản</a></li>
+            <li><a class="dropdown-item" href="{{ route('account') }}">Tài khoản</a></li>
             <li>
                 <hr class="dropdown-divider">
             </li>
