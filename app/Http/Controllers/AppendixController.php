@@ -80,6 +80,18 @@ class AppendixController extends Controller
         return redirect()->route('appendix.index')->with('success', 'Cập nhật thành công');
     }
 
+    public function show(Appendix $appendix)
+    {
+        $employee = $appendix->employee;
+        $contract = $appendix->contract;
+        $data = [
+            'appendix' => $appendix,
+            'employee' => $employee,
+            'contract' => $contract,
+        ];
+        return view('backend.appendix.show', $data);
+    }
+
     public function destroy(Appendix $appendix)
     {
         $appendix->delete();

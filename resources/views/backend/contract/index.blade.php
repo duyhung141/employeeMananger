@@ -14,7 +14,7 @@
                 <thead>
                 <tr class="table-primary">
                     <th scope="col">#</th>
-                    <th scope="col">Số hợp đồng</th>
+                    <th scope="col">Mã hợp đồng</th>
                     <th scope="col">Nhân viên</th>
                     <th scope="col">Hồ sơ lương</th>
                     <th scope="col">Ngày bắt đầu</th>
@@ -32,7 +32,7 @@
                     <tr>
                         <th scope="row">{{ $index +1 }}</th>
                         <td>
-                            <a class="text-primary text-decoration-none" href="{{ route('contract.show', 1) }}">{{ $contract->contract_number }}</a>
+                            <a class="text-primary text-decoration-none" href="{{ route('contract.show', ['contract' => $contract]) }}">{{ $contract->code }}</a>
                         </td>
                         <td>{{ $contract->employee->name }}</td>
                         <td>{{ $contract->salary->code }}</td>
@@ -45,7 +45,7 @@
                                 <i class="bi bi-three-dots"></i>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-eye-fill"></i> Xem chi tiết</a></li>
+                                <li><a class="dropdown-item" href="{{ route('contract.show', ['contract' => $contract]) }}"><i class="bi bi-eye-fill"></i> Xem chi tiết</a></li>
                                 <li><a class="dropdown-item" href="{{ route('contract.edit', ['contract' => $contract]) }}"><i class="bi bi-pencil"></i> Sửa thông tin</a></li>
                                 <form action="{{ route('contract.destroy', ['contract' => $contract]) }}" method="POST">
                                     @csrf

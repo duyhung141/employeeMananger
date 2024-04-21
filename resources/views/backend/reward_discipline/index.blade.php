@@ -61,7 +61,9 @@
                     @foreach($reward_disciplines as $index => $reward_discipline)
                         <tr>
                             <th scope="row">{{ $index + 1 }}</th>
-                            <td>{{ $reward_discipline->code }}</td>
+                            <td>
+                                <a class="text-primary text-decoration-none" href="{{ route('reward_discipline.show', ['reward_discipline' => $reward_discipline]) }}">{{ $reward_discipline->code }}</a>
+                            </td>
                             <td>{{ $reward_discipline->employee->name }}</td>
                             <td>{{ $reward_discipline->getColEffectiveDate() }}</td>
                             <td>{{ $reward_discipline->getColType() }}</td>
@@ -73,7 +75,7 @@
                                     <i class="bi bi-three-dots"></i>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#"><i class="bi bi-eye-fill"></i> Xem chi
+                                    <li><a class="dropdown-item" href="{{ route('reward_discipline.show', ['reward_discipline' => $reward_discipline]) }}"><i class="bi bi-eye-fill"></i> Xem chi
                                             tiết</a></li>
                                     <li><a class="dropdown-item"
                                            href="{{ route('reward_discipline.edit', ['reward_discipline' => $reward_discipline]) }}"><i

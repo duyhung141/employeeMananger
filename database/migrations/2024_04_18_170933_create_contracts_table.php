@@ -18,7 +18,7 @@ class CreateContractsTable extends Migration
             $table->string('code')->nullable()->comment('Mã hợp đồng');
             $table->string('contract_number')->nullable()->comment('Số hợp đồng');
             $table->bigInteger('employee_id')->comment('ID nhân viên');
-            $table->bigInteger('salary_id')->comment('ID nhân viên');
+            $table->bigInteger('salary_id')->comment('ID hồ sơ lương');
             $table->string('type')->comment('Loại hợp đồng');
             $table->date('effective_date')->comment('Ngày bắt đầu');
             $table->date('expired_date')->comment('Ngày kết thúc');

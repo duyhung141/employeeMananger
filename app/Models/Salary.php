@@ -80,4 +80,13 @@ class Salary extends Model
         }
         return $status;
     }
+
+    public function checkStatusExpired()
+    {
+        if($this->getColExpiredDate() < date('d/m/Y') && $this->status == self::STATUS_APPLY)
+        {
+            return true;
+        }
+        return false;
+    }
 }

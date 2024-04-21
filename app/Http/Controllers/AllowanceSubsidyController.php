@@ -67,7 +67,12 @@ class AllowanceSubsidyController extends Controller
 
     public function show(AllowanceSubsidy $allowance_subsidy)
     {
-        return view('backend.allowance_subsidy.show');
+        $employee = $allowance_subsidy->employee;
+        $data = [
+            'allowance_subsidy' => $allowance_subsidy,
+            'employee' => $employee,
+        ];
+        return view('backend.allowance_subsidy.show', $data);
     }
 
     public function destroy(AllowanceSubsidy $allowance_subsidy)

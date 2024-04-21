@@ -58,4 +58,22 @@ class Appendix extends Model
     {
         return date('d-m-Y', strtotime($this->effective_date));
     }
+
+    public function getStatus()
+    {
+        if($this->getColExpiredDate() < date('d/m/Y'))
+        {
+            return 'Hết hạn';
+        }
+        return 'Còn hạn';
+    }
+
+    public function checkStatusExpired()
+    {
+        if($this->getColExpiredDate() < date('d/m/Y'))
+        {
+            return true;
+        }
+        return false;
+    }
 }

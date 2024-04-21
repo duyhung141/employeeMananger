@@ -27,6 +27,7 @@ class Contract extends Model
 
     public const STATUS_APPLY = 'APPLY'; // Đang áp dụng
     public const STATUS_NOT_APPLY = 'NOT_APPLY'; // Chưa áp dụng
+    public const STATUS_EXPIRED = 'EXPIRED'; // Hết hạn
 
     public function employee()
     {
@@ -84,5 +85,14 @@ class Contract extends Model
                 break;
         }
         return $status;
+    }
+
+    public function checkStatusExpired()
+    {
+        if($this->getColExpiredDate() < date('d/m/Y') && $this->status == self::STATUS_APPLY)
+        {
+            return true;
+        }
+        return false;
     }
 }

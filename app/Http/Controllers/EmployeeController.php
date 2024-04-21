@@ -74,6 +74,14 @@ class EmployeeController extends Controller
         return redirect()->route('employee.index');
     }
 
+    public function show(Employee $employee)
+    {
+        $data = [
+            'employee' => $employee,
+        ];
+        return view('backend.employee.show', $data);
+    }
+
     public function destroy(Employee $employee)
     {
         $employee->delete();

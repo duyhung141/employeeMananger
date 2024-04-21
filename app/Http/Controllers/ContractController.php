@@ -76,15 +76,22 @@ class ContractController extends Controller
         return redirect()->route('contract.index')->with('success', 'Cập nhật thành công');
     }
 
-    public function show(Request $request, Contract $contract)
-    {
-        return view('backend.contract.show');
-    }
-
     public function destroy(Request $request, Contract $contract)
     {
         $contract->delete();
         return redirect()->route('contract.index')->with('success', 'Xóa thành công');
+    }
+
+    public function show(Contract $contract)
+    {
+        $employee = $contract->employee;
+        $salary = $contract->salary;
+        $data = [
+            'contract' => $contract,
+            'employee' => $employee,
+            'salary' => $salary
+        ];
+        return view('backend.contract.show', $data);
     }
 
     public function getSalary($employee_id)

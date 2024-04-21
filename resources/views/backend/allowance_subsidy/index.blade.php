@@ -61,7 +61,9 @@
                     @foreach($allowance_subsidies as $index => $allowance_subsidy)
                         <tr>
                             <th scope="row">{{ $index + 1 }}</th>
-                            <td>{{ $allowance_subsidy->code }}</td>
+                            <td>
+                                <a class="text-primary text-decoration-none" href="{{ route('allowance_subsidy.show', ['allowance_subsidy' => $allowance_subsidy]) }}">{{ $allowance_subsidy->code }}</a>
+                            </td>
                             <td>{{ $allowance_subsidy->employee->name }}</td>
                             <td>{{ $allowance_subsidy->getColEffectiveDate() }}</td>
                             <td>{{ $allowance_subsidy->type }}</td>
@@ -73,7 +75,7 @@
                                     <i class="bi bi-three-dots"></i>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#"><i class="bi bi-eye-fill"></i> Xem chi
+                                    <li><a class="dropdown-item" href="{{ route('allowance_subsidy.show', ['allowance_subsidy' => $allowance_subsidy]) }}"><i class="bi bi-eye-fill"></i> Xem chi
                                             tiết</a></li>
                                     <li><a class="dropdown-item"
                                            href="{{ route('allowance_subsidy.edit', ['allowance_subsidy' => $allowance_subsidy]) }}"><i

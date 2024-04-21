@@ -6,7 +6,6 @@ use App\Http\Controllers\EmployeeController;
 
 Route::group([
     'prefix' => 'employee',
-//    'middleware' => ['auth'],
     'as' => 'employee.'
 ], function () {
     Route::get('/', [EmployeeController::class, 'index'])->name('index');

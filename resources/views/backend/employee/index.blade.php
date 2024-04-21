@@ -43,7 +43,7 @@
                                 <i class="bi bi-three-dots"></i>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-eye-fill"></i> Xem chi tiết</a></li>
+                                <li><a class="dropdown-item" href="{{ route('employee.show', ['employee' => $employee]) }}"><i class="bi bi-eye-fill"></i> Xem chi tiết</a></li>
                                 <li><a class="dropdown-item" href="{{ route('employee.edit', ['employee' => $employee]) }}"><i class="bi bi-pencil"></i> Sửa thông tin</a></li>
                                 <form action="{{ route('employee.destroy', ['employee' => $employee]) }}" method="POST">
                                     @csrf

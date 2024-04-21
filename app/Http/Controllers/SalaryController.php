@@ -42,7 +42,7 @@ class SalaryController extends Controller
         $model_id = $salary->id;
         $code = 'HSL' . str_pad($model_id, 4, '0', STR_PAD_LEFT);
         $employee = $salary->employee;
-        $decision_code = $code . $employee->code;
+        $decision_code = $code . '/' . $employee->code;
         $salary->update(['code' => $code, 'decision_code' => $decision_code]);
         return redirect()->route('salary.index');
     }
@@ -64,7 +64,6 @@ class SalaryController extends Controller
     {
         $request->validate([
             'employee_id' => 'required',
-//            'department_id' => 'required',
             'effective_date' => 'required',
             'expired_date' => 'required',
             'tax_schedule' => 'required',
@@ -74,6 +73,16 @@ class SalaryController extends Controller
         ]);
         $salary->update($request->all());
         return redirect()->route('salary.index');
+    }
+
+    public function show(Salary $salary)
+    {
+        $employee = $salary->employee;
+        $data = [
+            'salary' => $salary,
+            'employee' => $employee
+        ];
+        return view('backend.salary.show', $data);
     }
 
     public function destroy(Salary $salary)

@@ -72,7 +72,12 @@ class RewardDisciplineController extends Controller
 
     public function show(RewardDiscipline $reward_discipline)
     {
-        return view('backend.reward_discipline.show');
+        $employee = $reward_discipline->employee;
+        $data = [
+            'reward_discipline' => $reward_discipline,
+            'employee' => $employee,
+        ];
+        return view('backend.reward_discipline.show', $data);
     }
 
     public function destroy(RewardDiscipline $reward_discipline)

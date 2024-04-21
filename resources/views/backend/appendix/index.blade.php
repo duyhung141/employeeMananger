@@ -32,7 +32,7 @@
                     <tr>
                         <th scope="row">{{ $index +1 }}</th>
                         <td>
-                            <a class="text-primary text-decoration-none" href="{{ route('appendix.show', 1) }}">{{ $appendix->code }}</a>
+                            <a class="text-primary text-decoration-none" href="{{ route('appendix.show', ['appendix' => $appendix]) }}">{{ $appendix->code }}</a>
                         </td>
                         <td>{{ $appendix->employee->name }}</td>
                         <td>{{ $appendix->contract->code }}</td>
@@ -44,7 +44,7 @@
                                 <i class="bi bi-three-dots"></i>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-eye-fill"></i> Xem chi tiết</a></li>
+                                <li><a class="dropdown-item" href="{{ route('appendix.show', ['appendix' => $appendix]) }}"><i class="bi bi-eye-fill"></i> Xem chi tiết</a></li>
                                 <li><a class="dropdown-item" href="{{ route('appendix.edit', ['appendix' => $appendix]) }}"><i class="bi bi-pencil"></i> Sửa thông tin</a></li>
                                 <form action="{{ route('appendix.destroy', ['appendix' => $appendix]) }}" method="POST">
                                     @csrf

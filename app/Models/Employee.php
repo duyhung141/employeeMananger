@@ -46,7 +46,7 @@ class Employee extends Model
     public function getColType()
     {
         $type = '';
-        switch ($this->getColType()) {
+        switch ($this->type) {
             case self::TYPE_PROBATION:
                 $type = 'Thử việc';
                 break;
