@@ -35,7 +35,8 @@
                             (\Illuminate\Support\Facades\Route::is('employee.index') ||
                             \Illuminate\Support\Facades\Route::is('employee.create') ||
                             \Illuminate\Support\Facades\Route::is('employee.edit'))? 'active' : ''
-                       }}">
+                       }}"
+                    >
                         <p>Nhân viên</p>
                     </a>
                 </li>
@@ -100,16 +101,24 @@
         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
            data-toggle="dropdown" aria-expanded="false">
             <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-            <strong>Phú</strong>
+            <strong>{{ auth()->user()->email }}</strong>
         </a>
         <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
             <li><a class="dropdown-item" href="#">Tài khoản</a></li>
             <li>
                 <hr class="dropdown-divider">
             </li>
-            <li><a class="dropdown-item" href="">Đăng xuất</a></li>
+            <li>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button class="dropdown-item">Đăng xuất</button>
+
+                </form>
+            </li>
         </ul>
     </div>
 </aside>
 <!-- /.Main Sidebar Container -->
+
+
 

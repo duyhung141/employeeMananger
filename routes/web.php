@@ -22,9 +22,12 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
-require base_path('routes/backend/employee.php');
-require base_path('routes/backend/salary.php');
-require base_path('routes/backend/contract.php');
-require base_path('routes/backend/appendix.php');
-require base_path('routes/backend/reward_discipline.php');
-require base_path('routes/backend/allowance_subsidy.php');
+Route::middleware(['auth'])->group(function () {
+    require base_path('routes/backend/employee.php');
+    require base_path('routes/backend/salary.php');
+    require base_path('routes/backend/contract.php');
+    require base_path('routes/backend/appendix.php');
+    require base_path('routes/backend/reward_discipline.php');
+    require base_path('routes/backend/allowance_subsidy.php');
+});
+
