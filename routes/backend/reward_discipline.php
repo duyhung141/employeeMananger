@@ -6,7 +6,7 @@ use App\Http\Controllers\RewardDisciplineController;
 
 Route::group([
     'prefix' => 'reward-discipline',
-//    'middleware' => ['auth'],
+    'middleware' => ['auth.admin'],
     'as' => 'reward_discipline.'
 ], function () {
     Route::get('/', [RewardDisciplineController::class, 'index'])->name('index');

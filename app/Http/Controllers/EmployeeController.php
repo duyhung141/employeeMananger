@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Employee;
 use App\Models\Salary;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
@@ -38,6 +39,11 @@ class EmployeeController extends Controller
             'phone' => 'required',
             'email' => 'required'
         ]);
+        $user = User::create([
+            'email' => $request->email,
+            'password' => bcrypt('123456'),
+        ]);
+
         $employee = Employee::create($request->all());
 
         $model_id = $employee->id;

@@ -23,79 +23,81 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
                 <li class="nav-item">
-                    <a href=""
+                    <a href="{{ route('index') }}"
                        class="nav-link">
                         <p>Trang chủ</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ route('employee.index') }}"
-                       class="nav-link
+                @if(auth()->user()->is_admin)
+                    <li class="nav-item">
+                        <a href="{{ route('employee.index') }}"
+                           class="nav-link
                        {{
                             (\Illuminate\Support\Facades\Route::is('employee.index') ||
                             \Illuminate\Support\Facades\Route::is('employee.show') ||
                             \Illuminate\Support\Facades\Route::is('employee.create') ||
                             \Illuminate\Support\Facades\Route::is('employee.edit'))? 'active' : ''
                        }}"
-                    >
-                        <p>Nhân viên</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('salary.index') }}"
-                       class="nav-link {{
+                        >
+                            <p>Nhân viên</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('salary.index') }}"
+                           class="nav-link {{
                             (\Illuminate\Support\Facades\Route::is('salary.index') ||
                             \Illuminate\Support\Facades\Route::is('salary.show') ||
                             \Illuminate\Support\Facades\Route::is('salary.create') ||
                             \Illuminate\Support\Facades\Route::is('salary.edit'))? 'active' : ''
                        }}">
-                        <p>Hồ sơ lương</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('contract.index') }}"
-                       class="nav-link {{
+                            <p>Hồ sơ lương</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('contract.index') }}"
+                           class="nav-link {{
                             (\Illuminate\Support\Facades\Route::is('contract.index') ||
                             \Illuminate\Support\Facades\Route::is('contract.show') ||
                             \Illuminate\Support\Facades\Route::is('contract.create') ||
                             \Illuminate\Support\Facades\Route::is('contract.edit'))? 'active' : ''
                        }}">
-                        <p>Hợp đồng</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('appendix.index') }}"
-                       class="nav-link {{
+                            <p>Hợp đồng</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('appendix.index') }}"
+                           class="nav-link {{
                             (\Illuminate\Support\Facades\Route::is('appendix.index') ||
                             \Illuminate\Support\Facades\Route::is('appendix.show') ||
                             \Illuminate\Support\Facades\Route::is('appendix.create') ||
                             \Illuminate\Support\Facades\Route::is('appendix.edit'))? 'active' : ''
                        }}">
-                        <p>Phụ lục</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('reward_discipline.index') }}"
-                       class="nav-link {{
+                            <p>Phụ lục</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('reward_discipline.index') }}"
+                           class="nav-link {{
                             (\Illuminate\Support\Facades\Route::is('reward_discipline.index') ||
                             \Illuminate\Support\Facades\Route::is('reward_discipline.show') ||
                             \Illuminate\Support\Facades\Route::is('reward_discipline.create') ||
                             \Illuminate\Support\Facades\Route::is('reward_discipline.edit'))? 'active' : ''
                        }}">
-                        <p>Khen thưởng/Kỉ luật</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('allowance_subsidy.index') }}"
-                       class="nav-link {{
+                            <p>Khen thưởng/Kỉ luật</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('allowance_subsidy.index') }}"
+                           class="nav-link {{
                             (\Illuminate\Support\Facades\Route::is('allowance_subsidy.index') ||
                             \Illuminate\Support\Facades\Route::is('allowance_subsidy.show') ||
                             \Illuminate\Support\Facades\Route::is('allowance_subsidy.create') ||
                             \Illuminate\Support\Facades\Route::is('allowance_subsidy.edit'))? 'active' : ''
                        }}">
-                        <p>Phụ cấp/trợ cấp</p>
-                    </a>
-                </li>
+                            <p>Phụ cấp/trợ cấp</p>
+                        </a>
+                    </li>
+                @endif
             </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -110,7 +112,7 @@
             <strong>{{ auth()->user()->email }}</strong>
         </a>
         <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-            <li><a class="dropdown-item" href="{{ route('account') }}">Tài khoản</a></li>
+            <li><a class="dropdown-item" href="{{ route('account.index') }}">Tài khoản</a></li>
             <li>
                 <hr class="dropdown-divider">
             </li>

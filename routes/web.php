@@ -13,17 +13,20 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
 Route::middleware(['auth'])->group(function () {
-    Route::get('/account',[UserController::class,'account'])->name('account');
+    Route::get('/', [UserController::class, 'index'])->name('index');
+    Route::group([
+        'prefix' => 'account',
+        'as' => 'account.'
+    ], function () {
+        Route::get('/', [UserController::class, 'account'])->name('index');
+        Route::post('change-password', [UserController::class, 'changePassword'])->name('change-password');
+    });
     require base_path('routes/backend/employee.php');
     require base_path('routes/backend/salary.php');
     require base_path('routes/backend/contract.php');
