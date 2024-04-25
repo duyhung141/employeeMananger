@@ -50,6 +50,25 @@ class AppendixController extends Controller
         $contract = $appendix->contract;
         $contract->update(['status' => Contract::STATUS_APPLY]);
 
+        if ($request->type == "ADJUST_POSITION") {
+            $employee = $contract->employee;
+            $employee->update([
+                'position' => $request->position
+            ]);
+        } else if ($request->type == "CHANGE_DEPARTMENT") {
+            $employee = $contract->employee;
+            $employee->update([
+                'position' => $request->position,
+                'department' => $request->department
+            ]);
+        } else {
+            $contract->salary->update([
+                'basic_salary' => $request->basic_salary,
+                'negotiable_salary' => $request->negotiable_salary,
+                'coefficient_salary' => $request->coefficient_salary
+            ]);
+        }
+
         return redirect()->route('appendix.index')->with('success', 'Thêm mới thành công');
     }
 
@@ -76,6 +95,26 @@ class AppendixController extends Controller
         ]);
         // Update data
         $appendix->update($request->all());
+
+        $contract = $appendix->contract;
+        if ($request->type == "ADJUST_POSITION") {
+            $employee = $contract->employee;
+            $employee->update([
+                'position' => $request->position
+            ]);
+        } else if ($request->type == "CHANGE_DEPARTMENT") {
+            $employee = $contract->employee;
+            $employee->update([
+                'position' => $request->position,
+                'department' => $request->department
+            ]);
+        } else {
+            $contract->salary->update([
+                'basic_salary' => $request->basic_salary,
+                'negotiable_salary' => $request->negotiable_salary,
+                'coefficient_salary' => $request->coefficient_salary
+            ]);
+        }
 
         return redirect()->route('appendix.index')->with('success', 'Cập nhật thành công');
     }
