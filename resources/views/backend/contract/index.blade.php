@@ -5,6 +5,50 @@
         <div class="card-header">
             <h1>Quản lý hợp đồng</h1>
         </div><!--End card-header -->
+
+        <div class="row">
+            <div class="col-md-2">
+                <label for="contract_code" class="form-label">Mã HD</label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="contract_code" name="contract_code">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <label for="employee_code" class="form-label">Mã NV</label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="employee_code" name="employee_code">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <label for="name" class="form-label">Họ tên</label>
+                <div class="input-group has-validation">
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <label for="type" class="form-label">Phòng ban</label>
+                <select class="form-control" id="type" name="type">
+                    <option selected disabled value="">---Choose---</option>
+                    @foreach(config('department.departments') as $department)
+                        <option value="{{ $department }}">{{ $department }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label for="type" class="form-label">Chức vụ</label>
+                <select class="form-control" id="type" name="position">
+                    <option selected disabled value="">---Choose---</option>
+                    @foreach(config('position.positions') as $position)
+                        <option value="{{ $position }}">{{ $position }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="col-md-3 d-flex align-items-end">
+                <button class="btn btn-info">Tìm kiếm</button>
+            </div>
+        </div>
+
         <div class="my-2 d-flex justify-content-end">
             <a href="{{ route('contract.create') }}" class="btn btn-primary text-end">Thêm mới</a>
         </div>

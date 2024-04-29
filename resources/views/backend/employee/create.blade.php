@@ -36,7 +36,7 @@
                 <div class="col-md-3">
                     <label for="email" class="form-label">Email</label>
                     <div class="input-group has-validation">
-                        <span class="input-group-text" id="email">@</span>
+                        <span class="input-group-text">@</span>
                         <input type="email" class="form-control" id="email" name="email" required>
                     </div>
                 </div>
